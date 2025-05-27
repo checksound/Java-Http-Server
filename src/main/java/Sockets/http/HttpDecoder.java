@@ -87,11 +87,10 @@ public class HttpDecoder {
                 String headerValue = header.substring(colonIndex + 1);
 
                 requestHeaders.compute(headerName, (key, values) -> {
-                    if (values != null) {
-                        values.add(headerValue);
-                    } else {
+                    if (values == null) {
                         values = new ArrayList<>();
                     }
+                    values.add(headerValue);
                     return values;
                 });
             }
