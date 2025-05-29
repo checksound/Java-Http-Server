@@ -6,6 +6,7 @@ import Sockets.pojos.HttpResponse;
 import java.io.IOException;
 
 import static Sockets.contract.HttpMethod.GET;
+import static Sockets.contract.HttpMethod.POST;
 
 /**
  * Test functional server library.
@@ -20,14 +21,14 @@ public class App {
                         .setEntity("<HTML> <P> Hello There... </P> </HTML>")
                         .build());
 
-        myServer.addRoute(GET, "/testTwo",
+        myServer.addRoute(POST, "/testTwo",
                 (req) -> {
                     System.out.println(req.getRequestHeaders());
                     return new HttpResponse.Builder()
-                        .setStatusCode(200)
-                        .addHeader("Content-Type", "text/html")
-                        .setEntity("<HTML> <P> Hello There... </P> </HTML>")
-                        .build(); });
+                            .setStatusCode(200)
+                            .addHeader("Content-Type", "text/html")
+                            .setEntity("<HTML> <P> Hello There... </P> </HTML>")
+                            .build(); });
 
         myServer.start();
     }
