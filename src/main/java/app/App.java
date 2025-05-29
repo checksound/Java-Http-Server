@@ -18,16 +18,15 @@ public class App {
                 (req) -> new HttpResponse.Builder()
                         .setStatusCode(200)
                         .addHeader("Content-Type", "text/html")
-                        .setEntity("<HTML> <P> Hello There... </P> </HTML>")
+                        .setEntity("<HTML> <P> Hello One... </P> </HTML>")
                         .build());
 
         myServer.addRoute(POST, "/testTwo",
                 (req) -> {
-                    System.out.println(req.getRequestHeaders());
                     return new HttpResponse.Builder()
                             .setStatusCode(200)
                             .addHeader("Content-Type", "text/html")
-                            .setEntity("<HTML> <P> Hello There... </P> </HTML>")
+                            .setEntity("<HTML> <P> Hello Two... </P> </HTML>")
                             .build(); });
 
         myServer.start();
